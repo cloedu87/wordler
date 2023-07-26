@@ -1,3 +1,4 @@
+import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { defineStore } from 'pinia';
 
 export const useCounterStore = defineStore('counter', {
@@ -10,6 +11,12 @@ export const useCounterStore = defineStore('counter', {
   actions: {
     increment() {
       this.counter++;
+    },
+    getSheet() {
+      const doc = new GoogleSpreadsheet(
+        '<the sheet ID from the url>',
+        serviceAccountAuth
+      );
     },
   },
 });

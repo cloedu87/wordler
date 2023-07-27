@@ -58,7 +58,7 @@ const essentialLinks: EssentialLinkProps[] = [
   },
   {
     title: 'Sheet',
-    caption: 'the source file',
+    caption: 'the spreadsheet of truth',
     icon: 'content_paste_go',
     link: 'https://docs.google.com/spreadsheets/d/1cz4SAePV011rWPZQ6IFfYfmNftpgXDefkmwABzp9s2k/edit#gid=514478750',
   },

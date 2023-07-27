@@ -43,10 +43,28 @@ import { ref } from 'vue';
 
 const essentialLinks: EssentialLinkProps[] = [
   {
+    title: 'Hello',
+    caption: 'start shuffle that words',
+    icon: 'waving_hand',
+    link: '/',
+  },
+  {
+    title: 'Study',
+    caption: 'start shuffle that words',
+    icon: 'school',
+    link: '/study',
+  },
+  {
     title: 'Sheet',
     caption: 'the source file',
-    icon: 'table',
+    icon: 'content_paste_go',
     link: 'https://docs.google.com/spreadsheets/d/1cz4SAePV011rWPZQ6IFfYfmNftpgXDefkmwABzp9s2k/edit#gid=514478750',
+  },
+  {
+    title: 'Source',
+    caption: 'git repository',
+    icon: 'code',
+    link: 'https://github.com/cloedu87/wordler',
   },
 ];
 

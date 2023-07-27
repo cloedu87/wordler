@@ -1,20 +1,32 @@
-import axios from 'axios';
-import { defineStore } from 'pinia';
+import axios from 'axios'
+import { map } from 'lodash'
+import { defineStore } from 'pinia'
 
 export interface SheetState {
-  verben: Verb[];
-  nomen: any[];
-  adjektive: any[];
+  verben: Verb[]
+  nomen: any[]
+  adjektive: any[]
 }
 
 export interface Verb {
-  grundform: string;
-  prasens: string;
-  prateritum: string;
-  perfekt: string;
-  bedeutung: string;
-  beispiel: string;
-  synonyme: string;
+  grundform: string
+  prasens: string
+  prateritum: string
+  perfekt: string
+  bedeutung: string
+  beispiel: string
+  synonyme: string
+}
+
+export interface VerbDto {
+  rowIndex: number
+  '🇳🇱 NL Grundform': string
+  '🇩🇪 DE Präsens (tegenwoordige tijd)': string
+  '🇩🇪 DE Präteritum (verleden tijd)': string
+  '🇩🇪 DE Perfekt (voltooid deelwoord)': string
+  '👀 Beispiel': string
+  '💡 Bedeutung': string
+  '🟰 Synonyme': string
 }
 
 export const useSheetStore = defineStore('sheets', {
@@ -39,10 +51,20 @@ export const useSheetStore = defineStore('sheets', {
             'Content-Type': 'application/json',
           },
         }
-      );
-      console.log(sheetResponse.data.results);
+      )
+      console.log(sheetResponse.data.results)
 
-      this.verben = sheetResponse.data.results;
+      this.verben = map(sheetResponse.data.results, (verb: VerbDto) => {
+        return {
+          grundform: verb['🇳🇱 NL Grundform'],
+          prasens: verb['🇩🇪 DE Perfekt (voltooid deelwoord)'],
+          prateritum: verb['🇩🇪 DE Präsens (tegenwoordige tijd)'],
+          perfekt: verb['🇩🇪 DE Perfekt (voltooid deelwoord)'],
+          bedeutung: verb['💡 Bedeutung'],
+          beispiel: verb['👀 Beispiel'],
+          synonyme: verb['🟰 Synonyme'],
+        }
+      })
     },
   },
-});
+})

@@ -13,7 +13,7 @@
 
         <q-toolbar-title> wordler.io </q-toolbar-title>
 
-        <div>built from &#128155; with &#128155;</div>
+        <div>from &#128155; with &#128155;</div>
       </q-toolbar>
     </q-header>
 
@@ -36,10 +36,8 @@
 </template>
 
 <script setup lang="ts">
-import EssentialLink, {
-  EssentialLinkProps,
-} from 'components/EssentialLink.vue';
-import { ref } from 'vue';
+import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue'
+import { ref } from 'vue'
 
 const essentialLinks: EssentialLinkProps[] = [
   {
@@ -66,11 +64,11 @@ const essentialLinks: EssentialLinkProps[] = [
     icon: 'code',
     link: 'https://github.com/cloedu87/wordler',
   },
-];
+]
 
-const leftDrawerOpen = ref(false);
+const leftDrawerOpen = ref(false)
 
 function toggleLeftDrawer() {
-  leftDrawerOpen.value = !leftDrawerOpen.value;
+  leftDrawerOpen.value = !leftDrawerOpen.value
 }
 </script>

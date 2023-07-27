@@ -19,8 +19,11 @@
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label header></q-item-label>
-
+        <q-item-label header>
+          <q-img style="max-width: 4rem" src="favicon.ico"></q-img>
+          Lern your grammar, NOW!
+        </q-item-label>
+        <q-separator />
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
@@ -37,6 +40,7 @@
 
 <script setup lang="ts">
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue'
+import { sep } from 'path'
 import { ref } from 'vue'
 
 const essentialLinks: EssentialLinkProps[] = [

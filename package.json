@@ -12,7 +12,7 @@
     "dev": "quasar dev -m ssr",
     "build": "quasar build -m ssr",
     "start": "node dist/ssr/index.js",
-    "heroku": "npm install -g @quasar/cli && npm install && node dist/ssr/index.js"
+    "heroku": "npm install -g @quasar/cli && npm install && quasar build -m ssr && node dist/ssr/index.js"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",

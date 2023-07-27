@@ -36,16 +36,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import EssentialLink, {
   EssentialLinkProps,
 } from 'components/EssentialLink.vue';
+import { ref } from 'vue';
 
 const essentialLinks: EssentialLinkProps[] = [
   {
     title: 'Sheet',
     caption: 'the source file',
-    icon: 'table_chart',
+    icon: 'table',
     link: 'https://docs.google.com/spreadsheets/d/1cz4SAePV011rWPZQ6IFfYfmNftpgXDefkmwABzp9s2k/edit#gid=514478750',
   },
 ];

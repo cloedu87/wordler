@@ -2,7 +2,7 @@
   "name": "wordler",
   "version": "0.0.1",
   "description": "shuffle that words",
-  "productName": "Wordler",
+  "productName": "wordler.io",
   "author": "berawan0 <cloedu@gmail.com>",
   "private": true,
   "scripts": {

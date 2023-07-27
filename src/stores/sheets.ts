@@ -2,9 +2,19 @@ import axios from 'axios';
 import { defineStore } from 'pinia';
 
 export interface SheetState {
-  verben: any[];
+  verben: Verb[];
   nomen: any[];
   adjektive: any[];
+}
+
+export interface Verb {
+  grundform: string;
+  prasens: string;
+  prateritum: string;
+  perfekt: string;
+  bedeutung: string;
+  beispiel: string;
+  synonyme: string;
 }
 
 export const useSheetStore = defineStore('sheets', {

@@ -33,7 +33,6 @@
           filled
           clearable
           :error="!solutionCorrect"
-          autogrow
           autofocus
           :readonly="showSolution"
           hide-bottom-space
@@ -42,6 +41,7 @@
           color="secondary"
           label="Dare to type the solution?"
           no-error-icon
+          @keyup.enter="next"
         />
         <q-btn
           size="lg"

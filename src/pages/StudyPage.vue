@@ -31,10 +31,17 @@
       >
         <q-input
           filled
+          clearable
+          :error="!solutionCorrect"
+          autogrow
+          autofocus
+          :readonly="showSolution"
+          hide-bottom-space
           square
           v-model="solution"
           color="secondary"
           label="Dare to type the solution?"
+          no-error-icon
         />
         <q-btn
           size="lg"
@@ -73,6 +80,7 @@ const currentVerbIndex = ref(0)
 const currentVerb = computed(() => verben.value[currentVerbIndex.value])
 const showSolution = ref(false)
 const solution = ref('')
+const solutionCorrect = ref(true)
 const progress = computed(() => {
   return amountOfVerbs.value != 0
     ? ((100 / amountOfVerbs.value) * currentVerbIndex.value) / 100
@@ -83,14 +91,23 @@ const next = () => {
   // first show solution...
   if (!showSolution.value) {
     showSolution.value = true
-
+    checkIfSolutionIsCorrect()
     return
   }
   // ...if solution is already shown, go to next word
   else if (currentVerbIndex.value < amountOfVerbs.value) {
     currentVerbIndex.value++
     solution.value = ''
+    solutionCorrect.value = true
   }
   showSolution.value = false
+}
+
+const checkIfSolutionIsCorrect = () => {
+  if (solution.value === currentVerb.value.prasens) {
+    solutionCorrect.value = true
+  } else if (solution.value !== '') {
+    solutionCorrect.value = false
+  }
 }
 </script>

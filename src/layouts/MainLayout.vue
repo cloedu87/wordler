@@ -41,13 +41,12 @@
 
 <script setup lang="ts">
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue'
-import { sep } from 'path'
 import { ref } from 'vue'
 
 const essentialLinks: EssentialLinkProps[] = [
   {
     title: 'Hello',
-    caption: 'start shuffle that words',
+    caption: 'may we have your attention please',
     icon: 'waving_hand',
     link: '/',
   },

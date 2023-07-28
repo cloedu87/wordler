@@ -14,7 +14,7 @@
           </div>
         </div>
         <div v-if="showSolution" class="row">
-          <div class="col-mdd">
+          <div class="col-md">
             <div>{{ currentVerb.prasens }}</div>
             <div>{{ currentVerb.prateritum }}</div>
             <div>{{ currentVerb.perfekt }}</div>

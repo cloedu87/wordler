@@ -12,12 +12,12 @@
           {{ currentVerb.grundform }}
         </div>
         <div v-if="showSolution" class="row">
-          <div class="col-md">
+          <div class="col-md self-end">
             <div>{{ currentVerb.prasens }}</div>
             <div>{{ currentVerb.prateritum }}</div>
             <div>{{ currentVerb.perfekt }}</div>
           </div>
-          <div class="col-md">
+          <div class="col-md self-end">
             <div>{{ currentVerb.bedeutung }}</div>
             <div>{{ currentVerb.beispiel }}</div>
           </div>

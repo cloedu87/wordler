@@ -2,12 +2,12 @@
   <q-page>
     <q-card
       flat
-      class="wordler-card fit absolute"
+      class="wordler-card absolute fit hide-scrollbar no-scroll"
       square
       v-if="progress !== 1 && amountOfVerbs !== 0"
     >
-      <q-linear-progress :value="progress" color="priamary" />
-      <q-card-section class="text-h5">
+      <q-linear-progress :value="progress" />
+      <q-card-section class="text-h5 scroll wordler-card-section">
         <div v-if="!showSolution">
           {{ currentVerb.grundform }}
         </div>

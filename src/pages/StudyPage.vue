@@ -89,6 +89,7 @@ const next = () => {
   // ...if solution is already shown, go to next word
   else if (currentVerbIndex.value < amountOfVerbs.value) {
     currentVerbIndex.value++
+    solution.value = ''
   }
   showSolution.value = false
 }

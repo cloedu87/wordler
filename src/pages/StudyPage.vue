@@ -55,7 +55,24 @@
       square
       v-if="progress === 1"
     >
-      <q-card-section class="text-h5"> finished! </q-card-section>
+      <q-card-section class="text-h5">
+        <div class="col fit text-center">
+          <div class="col-md self-end">finished!</div>
+          <div class="col-md self-end">
+            <q-circular-progress
+              show-value
+              font-size="1.3rem"
+              :value="procentCorrect"
+              :thickness="0.4"
+              color="positive"
+              track-color="grey-3"
+              size="100px"
+            >
+              {{ procentCorrect }}%
+            </q-circular-progress>
+          </div>
+        </div>
+      </q-card-section>
       <q-card-actions class="absolute-bottom q-pa-none" vertical>
         <q-btn
           size="lg"
@@ -89,6 +106,13 @@ const currentVerb = computed(() => verben.value[currentVerbIndex.value])
 const showSolution = ref(false)
 const solution = ref('')
 const solutionCorrect = ref(true)
+const correct = ref(0)
+const procentCorrect = computed(() => {
+  return amountOfVerbs.value != 0
+    ? Math.round((100 / amountOfVerbs.value) * correct.value)
+    : 0
+})
+
 const progress = computed(() => {
   return amountOfVerbs.value != 0
     ? ((100 / amountOfVerbs.value) * currentVerbIndex.value) / 100
@@ -115,6 +139,8 @@ const next = () => {
 const checkIfSolutionIsCorrect = () => {
   if (solution.value === currentVerb.value.prasens) {
     solutionCorrect.value = true
+    correct.value++
+
     $q.notify({
       color: 'positive',
       message: 'Correct',
@@ -138,5 +164,6 @@ const restart = () => {
   showSolution.value = false
   solution.value = ''
   solutionCorrect.value = true
+  correct.value = 0
 }
 </script>

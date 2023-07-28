@@ -2,7 +2,7 @@
   <q-page>
     <q-card
       flat
-      class="wordler-card full-height fit absolute"
+      class="wordler-card fit absolute"
       square
       v-if="progress !== 1 && amountOfVerbs !== 0"
     >
@@ -38,7 +38,14 @@
         />
       </q-card-actions>
     </q-card>
-    <q-card class="wordler-card" square v-if="progress === 1"> </q-card>
+    <q-card
+      flat
+      class="wordler-card fit absolute row items-center justify-evenly"
+      square
+      v-if="progress === 1"
+    >
+      <q-card-section class="text-h5"> finished! </q-card-section>
+    </q-card>
     <q-inner-loading :showing="amountOfVerbs === 0">
       <q-spinner-gears size="50px" color="secondary" />
     </q-inner-loading>

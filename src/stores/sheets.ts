@@ -57,8 +57,8 @@ export const useSheetStore = defineStore('sheets', {
       this.verben = map(sheetResponse.data.results, (verb: VerbDto) => {
         return {
           grundform: verb['🇳🇱 NL Grundform'],
-          prasens: verb['🇩🇪 DE Perfekt (voltooid deelwoord)'],
-          prateritum: verb['🇩🇪 DE Präsens (tegenwoordige tijd)'],
+          prasens: verb['🇩🇪 DE Präsens (tegenwoordige tijd)'],
+          prateritum: verb['🇩🇪 DE Präteritum (verleden tijd)'],
           perfekt: verb['🇩🇪 DE Perfekt (voltooid deelwoord)'],
           bedeutung: verb['💡 Bedeutung'],
           beispiel: verb['👀 Beispiel'],

@@ -1,26 +1,47 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <q-card class="word-card" square>
-      <template v-if="amountOfVerbs !== 0">
-        <q-linear-progress :value="progress" color="priamary" />
-        <q-card-section class="text-h5 text-center">{{
-          currentVerb?.grundform
-        }}</q-card-section>
-        <q-card-actions class="absolute-bottom q-pa-none" vertical>
-          <q-btn
-            size="lg"
-            square
-            color="primary"
-            label="Next"
-            @click="next()"
-          />
-        </q-card-actions>
-      </template>
+  <q-page>
+    <q-card
+      flat
+      class="wordler-card full-height fit absolute"
+      square
+      v-if="progress !== 1 && amountOfVerbs !== 0"
+    >
+      <q-linear-progress :value="progress" color="priamary" />
+      <q-card-section class="text-h5">
+        <div v-if="!showSolution">
+          {{ currentVerb.grundform }}
+        </div>
+        <div v-if="showSolution" class="row">
+          <div class="col-md">
+            <div>{{ currentVerb.prasens }}</div>
+            <div>{{ currentVerb.prateritum }}</div>
+            <div>{{ currentVerb.perfekt }}</div>
+          </div>
+          <div class="col-md">
+            <div>{{ currentVerb.bedeutung }}</div>
+            <div>{{ currentVerb.beispiel }}</div>
+          </div>
+        </div>
+      </q-card-section>
 
-      <q-inner-loading :showing="amountOfVerbs === 0">
-        <q-spinner-gears size="50px" color="secondary" />
-      </q-inner-loading>
+      <q-card-actions
+        v-if="progress !== 1"
+        class="absolute-bottom q-pa-none"
+        vertical
+      >
+        <q-btn
+          size="lg"
+          square
+          color="primary"
+          :label="!showSolution ? 'show solution' : 'next'"
+          @click="next()"
+        />
+      </q-card-actions>
     </q-card>
+    <q-card class="wordler-card" square v-if="progress === 1"> </q-card>
+    <q-inner-loading :showing="amountOfVerbs === 0">
+      <q-spinner-gears size="50px" color="secondary" />
+    </q-inner-loading>
   </q-page>
 </template>
 
@@ -36,6 +57,7 @@ const verben = computed(() => sheetsStore.verben)
 const amountOfVerbs = computed(() => verben.value.length || 0)
 const currentVerbIndex = ref(0)
 const currentVerb = computed(() => verben.value[currentVerbIndex.value])
+const showSolution = ref(false)
 
 const progress = computed(() => {
   return amountOfVerbs.value != 0
@@ -44,8 +66,16 @@ const progress = computed(() => {
 })
 
 const next = () => {
-  if (currentVerbIndex.value < amountOfVerbs.value) {
+  // first show solution...
+  if (!showSolution.value) {
+    showSolution.value = true
+
+    return
+  }
+  // ...if solution is already shown, go to next word
+  else if (currentVerbIndex.value < amountOfVerbs.value) {
     currentVerbIndex.value++
   }
+  showSolution.value = false
 }
 </script>

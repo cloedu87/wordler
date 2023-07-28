@@ -29,6 +29,13 @@
         class="absolute-bottom q-pa-none"
         vertical
       >
+        <q-input
+          filled
+          square
+          v-model="solution"
+          color="secondary"
+          label="Dare to type the solution?"
+        />
         <q-btn
           size="lg"
           square
@@ -65,7 +72,7 @@ const amountOfVerbs = computed(() => verben.value.length || 0)
 const currentVerbIndex = ref(0)
 const currentVerb = computed(() => verben.value[currentVerbIndex.value])
 const showSolution = ref(false)
-
+const solution = ref('')
 const progress = computed(() => {
   return amountOfVerbs.value != 0
     ? ((100 / amountOfVerbs.value) * currentVerbIndex.value) / 100

@@ -33,9 +33,9 @@
           filled
           clearable
           :error="!solutionCorrect"
-          autofocus
           :readonly="showSolution"
           hide-bottom-space
+          autofocus
           square
           color="secondary"
           v-model="solution"

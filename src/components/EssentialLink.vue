@@ -15,7 +15,12 @@
       <q-item-label caption>{{ caption }}</q-item-label>
     </q-item-section>
   </q-item>
-  <q-item v-if="!link.startsWith('http')" clickable :to="link">
+  <q-item
+    v-if="!link.startsWith('http')"
+    clickable
+    :to="link"
+    active-class="text-primary"
+  >
     <q-item-section v-if="icon" avatar>
       <q-icon size="sm" :name="icon" />
     </q-item-section>
@@ -29,14 +34,14 @@
 
 <script setup lang="ts">
 export interface EssentialLinkProps {
-  title: string;
-  caption?: string;
-  link?: string;
-  icon?: string;
+  title: string
+  caption?: string
+  link?: string
+  icon?: string
 }
 withDefaults(defineProps<EssentialLinkProps>(), {
   caption: '',
   link: '#',
   icon: '',
-});
+})
 </script>

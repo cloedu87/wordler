@@ -1,16 +1,13 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar style="height: 96px">
-        <q-btn
+      <q-toolbar class="bg-secondary" style="height: 96px">
+        <q-img
           v-if="$q.screen.lt.md"
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
+          style="max-width: 4rem; -webkit-filter: invert(1); filter: invert(1)"
+          src="favicon.ico"
           @click="toggleLeftDrawer"
-        />
+        ></q-img>
 
         <q-toolbar-title> wordler.io </q-toolbar-title>
 
@@ -18,9 +15,15 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+    <q-drawer
+      class="text-secondary bg-tertiary"
+      elevated
+      v-model="leftDrawerOpen"
+      show-if-above
+      bordered
+    >
       <q-list>
-        <q-item-label header>
+        <q-item-label header class="text-black">
           <q-img style="max-width: 4rem" src="favicon.ico"></q-img>
           Lern your grammar, NOW!
         </q-item-label>

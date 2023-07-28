@@ -1,7 +1,15 @@
 // app global css in SCSS form
+@import 'quasar.variables.scss';
 
 .word-card {
   width: 30rem;
   max-width: calc(100vw - 2.5rem);
   min-height: 8rem;
+}
+
+.text-tertiary {
+  color: $tertiary !important;
+}
+.bg-tertiary {
+  background: $tertiary !important;
 }

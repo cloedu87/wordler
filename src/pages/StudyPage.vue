@@ -2,7 +2,7 @@
   <q-page class="row items-center justify-evenly">
     <q-card class="word-card" square>
       <template v-if="amountOfVerbs !== 0">
-        <q-linear-progress :value="progress" color="tertiary" />
+        <q-linear-progress :value="progress" color="priamary" />
         <q-card-section class="text-h5 text-center">{{
           currentVerb?.grundform
         }}</q-card-section>

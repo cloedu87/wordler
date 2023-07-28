@@ -21,7 +21,7 @@
       show-if-above
     >
       <q-list>
-        <q-item-label header class="text-black">
+        <q-item-label header class="text-black bg-white">
           <q-img style="max-width: 4rem" src="favicon.ico"></q-img>
           Lern your grammar, NOW!
         </q-item-label>

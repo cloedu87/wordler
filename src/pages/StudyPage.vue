@@ -26,11 +26,7 @@
         </div>
       </q-card-section>
 
-      <q-card-actions
-        v-if="progress !== 1"
-        class="absolute-bottom q-pa-none"
-        vertical
-      >
+      <q-card-actions class="absolute-bottom q-pa-none" vertical>
         <q-input
           filled
           clearable
@@ -60,6 +56,15 @@
       v-if="progress === 1"
     >
       <q-card-section class="text-h5"> finished! </q-card-section>
+      <q-card-actions class="absolute-bottom q-pa-none" vertical>
+        <q-btn
+          size="lg"
+          square
+          color="primary"
+          label="start again"
+          @click="restart"
+        />
+      </q-card-actions>
     </q-card>
     <q-inner-loading :showing="amountOfVerbs === 0">
       <q-spinner-gears size="50px" color="secondary" />
@@ -126,5 +131,12 @@ const checkIfSolutionIsCorrect = () => {
       position: 'right',
     })
   }
+}
+
+const restart = () => {
+  currentVerbIndex.value = 0
+  showSolution.value = false
+  solution.value = ''
+  solutionCorrect.value = true
 }
 </script>

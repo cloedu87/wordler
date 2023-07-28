@@ -7,19 +7,19 @@
       v-if="progress !== 1 && amountOfVerbs !== 0"
     >
       <q-linear-progress :value="progress" />
-      <q-card-section class="text-h5 scroll wordler-card-section">
-        <div v-if="!showSolution" class="row">
-          <div class="col-md">
+      <q-card-section class="text-h5 scroll fit absolute wordler-card-section">
+        <div v-if="!showSolution" class="row fit">
+          <div class="col self-end">
             {{ currentVerb.grundform }}
           </div>
         </div>
-        <div v-if="showSolution" class="row">
-          <div class="col-md">
+        <div v-if="showSolution" class="row fit">
+          <div class="col-md self-end">
             <div>{{ currentVerb.prasens }}</div>
             <div>{{ currentVerb.prateritum }}</div>
             <div>{{ currentVerb.perfekt }}</div>
           </div>
-          <div class="col-md">
+          <div class="col-md self-end">
             <div>{{ currentVerb.bedeutung }}</div>
             <div>{{ currentVerb.beispiel }}</div>
           </div>

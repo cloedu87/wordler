@@ -9,8 +9,8 @@
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
-    "dev": "quasar dev -m pwa",
-    "build": "quasar build -m pwa"
+    "dev": "quasar dev -m spa",
+    "build": "quasar build -m spa"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",

@@ -37,8 +37,8 @@
           :readonly="showSolution"
           hide-bottom-space
           square
-          v-model="solution"
           color="secondary"
+          v-model="solution"
           label="Dare to type the solution?"
           no-error-icon
           @keyup.enter="next"
@@ -48,7 +48,7 @@
           square
           color="primary"
           :label="!showSolution ? 'show solution' : 'next'"
-          @click="next()"
+          @click="next"
         />
       </q-card-actions>
     </q-card>
@@ -69,6 +69,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useSheetStore } from '../stores/sheets'
+import { useQuasar } from 'quasar'
+const $q = useQuasar()
 
 const sheetsStore = useSheetStore()
 
@@ -92,6 +94,7 @@ const next = () => {
   if (!showSolution.value) {
     showSolution.value = true
     checkIfSolutionIsCorrect()
+
     return
   }
   // ...if solution is already shown, go to next word
@@ -106,8 +109,21 @@ const next = () => {
 const checkIfSolutionIsCorrect = () => {
   if (solution.value === currentVerb.value.prasens) {
     solutionCorrect.value = true
+    $q.notify({
+      color: 'positive',
+      message: 'Correct',
+      icon: 'check',
+      position: 'right',
+    })
   } else if (solution.value !== '') {
     solutionCorrect.value = false
+
+    $q.notify({
+      color: 'negative',
+      message: 'Wrong',
+      icon: 'close',
+      position: 'right',
+    })
   }
 }
 </script>
